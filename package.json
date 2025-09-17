@@ -1,0 +1,25 @@
+{
+  "name": "frithco",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter ./apps/api start",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "config:check:web": "node tools/scripts/check-config.mjs web",
+    "config:check:api": "node tools/scripts/check-config.mjs api",
+    "e2e": "pnpm --filter ./apps/web e2e",
+    "migrate": "pnpm --filter ./apps/api prisma:migrate",
+    "prisma:studio": "pnpm --filter ./apps/api prisma:studio"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^20.11.0"
+  }
+}
